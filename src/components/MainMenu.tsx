@@ -49,7 +49,6 @@ export const MainMenu=() => {
                 <MenuItem onClick={()=>menuClicked("cart")}>Cart</MenuItem>
                 <MenuItem onClick={()=>menuClicked("impressum")}>Impressum</MenuItem>
                 <MenuItem onClick={()=>menuClicked("aboutus")}>About Us</MenuItem>
-
             </Menu>
         </div>
     );
