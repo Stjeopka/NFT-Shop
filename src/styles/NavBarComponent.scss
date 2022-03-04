@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.main-container{
+  justify-content: space-between;
+  background-color: lightgray;
+}
+.center-container{
+  align-items: center;
+}
+.logo{
+  height: 50px;
+  width: 50px;
+  border-radius:100%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.space{
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.shoppingCartButton{
+  border-radius: 50%;
+}

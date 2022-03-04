@@ -4,9 +4,18 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {createTheme, ThemeProvider, useTheme} from "@mui/material";
+import {lime} from "@mui/material/colors"
+const theme=createTheme({
+    palette:{
+        primary:lime
+}
+
+});
 
 ReactDOM.render(
   <React.StrictMode>
+      <ThemeProvider theme={theme}>
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App/>}>
@@ -14,6 +23,7 @@ ReactDOM.render(
               </Route>
           </Routes>
       </BrowserRouter>
+      </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
