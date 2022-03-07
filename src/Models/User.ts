@@ -1,4 +1,4 @@
-export interface User{
+export interface User {
     UserName:string;
     avatarSrc:string;
     cart:NftItem[];

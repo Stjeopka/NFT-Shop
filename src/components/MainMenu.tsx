@@ -3,14 +3,17 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useNavigate} from "react-router-dom";
+import {useRecoilState} from "recoil";
+import {userAtom} from "../Models/recoil-states";
 
 
-export const MainMenu=() => {
-    const navigator=useNavigate();
+export const MainMenu = () => {
+    const navigator = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const [user, setUser] = useRecoilState(userAtom);
 
-    const handleClick = (event:any) => {
+    const handleClick = (event: any) => {
         setAnchorEl(event.currentTarget);
     };
 
@@ -18,9 +21,14 @@ export const MainMenu=() => {
         setAnchorEl(null);
     };
 
-    const menuClicked=(path:string)=>{
+    const menuClicked = (path: string) => {
         navigator(path);
         setAnchorEl(null);
+    }
+
+    const logoutUser = () => {
+        setUser(null);
+        navigator("/");
     }
 
     return (
@@ -44,11 +52,13 @@ export const MainMenu=() => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={()=>menuClicked("/shop")}>Shop</MenuItem>
-                <MenuItem onClick={()=>menuClicked("login")}>Login</MenuItem>
-                <MenuItem onClick={()=>menuClicked("cart")}>Cart</MenuItem>
-                <MenuItem onClick={()=>menuClicked("impressum")}>Impressum</MenuItem>
-                <MenuItem onClick={()=>menuClicked("aboutus")}>About Us</MenuItem>
+                <MenuItem onClick={() => menuClicked("/shop")}>Shop</MenuItem>
+                <MenuItem onClick={() => menuClicked("impressum")}>Impressum</MenuItem>
+                <MenuItem onClick={() => menuClicked("aboutus")}>About Us</MenuItem>
+                {!user ?
+                    <MenuItem onClick={() => menuClicked("login")}>Login</MenuItem> :
+                    <MenuItem onClick={() => logoutUser()}>Logout</MenuItem>
+                }
             </Menu>
         </div>
     );

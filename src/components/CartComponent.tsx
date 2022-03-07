@@ -1,30 +1,31 @@
 // @flow
 import * as React from 'react';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {NftItem} from "../Models/User";
 import {Button, Typography} from "@mui/material";
-import {useUser} from "../Models/useUser";
+import {useRecoilState} from "recoil";
+import {userAtom} from "../Models/recoil-states";
 
 interface Props {
 
 };
 export const CartComponent = (props: Props) => {
-    const [nftItems,setNftItems]=useState<NftItem[]>([]);
-    const [user,,dispatch]=useUser(()=>{
-        if(user)
-        setNftItems(user.cart);
-    });
+    const [user] = useRecoilState(userAtom);
 
-    return (
+    return user ? (
         <div>
-            {nftItems.map(item=>(
+            {user.cart.map(item => (
                 <div>
                     <Typography variant={"subtitle1"}>{item.description}</Typography>
-                    {item.src?<img src={item.src}/>:null}
+                    {item.src ? <img src={item.src}/> : null}
                     <Typography>{item.value}</Typography>
-                    <Button onClick={()=>dispatch("removeCart",item)}>Entfernen</Button>
+                    <Button onClick={() => user.cart = user.cart.filter(i => i.id != item.id)}>Entfernen</Button>
                 </div>
             ))}
+        </div>
+    ) : (
+        <div>
+            Bitte Einloggen
         </div>
     );
 };

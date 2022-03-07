@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {createTheme, ThemeProvider, useTheme} from "@mui/material";
+import {createTheme, ThemeProvider} from "@mui/material";
 import {lime} from "@mui/material/colors"
-import {RecoilRoot} from "recoil";
 import {NftItem} from "./Models/User";
 import {ShopComponent} from "./components/ShopComponent";
 import {CheckOutComponent} from "./components/CheckOutComponent";
 import {CartComponent} from "./components/CartComponent";
 import {LoginComponent} from "./components/LoginComponent";
+import {RecoilRoot} from "recoil";
 
 const theme = createTheme({
     palette: {
@@ -27,27 +27,30 @@ const allItems: NftItem[] = [{
 
 ReactDOM.render(
     <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<App/>}>
-                        {/*sub-components*/}
-                        <Route path="shop" element={<ShopComponent allItems={allItems}/>}/>
-                        <Route path="chekout" element={<CheckOutComponent/>}/>
-                        <Route path="cart" element={<CartComponent/>}/>
-                        <Route path="aboutus" element={null}/>
-                        <Route path="impressum" element={null}/>
-                        <Route path="home" element={null}/>
-                        <Route path="login" element={<LoginComponent/>}/>
+        <RecoilRoot>
+            <ThemeProvider theme={theme}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<App/>}>
+                            {/*sub-components*/}
+                            <Route path="shop" element={<ShopComponent allItems={allItems}/>}/>
+                            <Route path="chekout" element={<CheckOutComponent/>}/>
+                            <Route path="cart" element={<CartComponent/>}/>
+                            <Route path="aboutus" element={null}/>
+                            <Route path="impressum" element={null}/>
+                            <Route path="home" element={null}/>
+                            <Route path="login" element={<LoginComponent/>}/>
 
-                        <Route path="*" element={<div>404 Not found</div>}/>
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </ThemeProvider>
+                            <Route path="*" element={<div>404 Not found</div>}/>
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </ThemeProvider>
+        </RecoilRoot>
     </React.StrictMode>,
     document.getElementById('root')
-);
+)
+;
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

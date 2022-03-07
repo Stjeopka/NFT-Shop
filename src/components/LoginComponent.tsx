@@ -1,19 +1,25 @@
 // @flow
 import * as React from 'react';
 import {Button, TextField} from "@mui/material";
-import {useUser} from "../Models/useUser";
+import {userAtom} from "../Models/recoil-states";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { useSetRecoilState} from "recoil";
 
 export const LoginComponent = () => {
     const navigate = useNavigate();
-    const [user, loginFunc] = useUser(() => {
-        navigate("/home");
-    });
+
+    const  setUser = useSetRecoilState(userAtom);
+
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const loginUser = () => {
-        loginFunc(userName);
+        setUser({
+            cart: [],
+            UserName: userName,
+            avatarSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5spYMNieWX-f77dDLGoPujAm2Ra7xcjypXw&usqp=CAU",
+        });
+        navigate("/");
     }
     return (
         <div>
