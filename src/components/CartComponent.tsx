@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import "../styles/Cart.scss"
 import {useState} from "react";
 import {NftItem} from "../Models/User";
 import {Button, Typography} from "@mui/material";

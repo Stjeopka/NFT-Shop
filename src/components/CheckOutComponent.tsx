@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import "../styles/CheckOut.scss"
 import {userAtom} from "../Models/recoil-states";
 import {Button, TextField, Typography} from "@mui/material";
 import {FC, useEffect, useState} from "react";

@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import "../styles/Shop.scss"
 import {userAtom} from "../Models/recoil-states";
 import {NftItem} from "../Models/User";
 import {useEffect, useState} from "react";
