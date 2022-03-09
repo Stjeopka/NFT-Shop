@@ -12,6 +12,7 @@ import {CheckOutComponent} from "./components/CheckOutComponent";
 import {CartComponent} from "./components/CartComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RecoilRoot} from "recoil";
+import {ImpressumComponent} from "./components/ImpressumComponent"
 
 const theme = createTheme({
     palette: {
@@ -37,7 +38,7 @@ ReactDOM.render(
                             <Route path="chekout" element={<CheckOutComponent/>}/>
                             <Route path="cart" element={<CartComponent/>}/>
                             <Route path="aboutus" element={null}/>
-                            <Route path="impressum" element={null}/>
+                            <Route path="impressum" element={<ImpressumComponent/>}/>
                             <Route path="home" element={null}/>
                             <Route path="login" element={<LoginComponent/>}/>
 
