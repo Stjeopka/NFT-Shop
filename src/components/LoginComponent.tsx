@@ -16,7 +16,6 @@ export const LoginComponent = () => {
     const [password, setPassword] = useState("");
     const loginUser = () => {
         setUser({
-            cart: [],
             UserName: userName,
             avatarSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5spYMNieWX-f77dDLGoPujAm2Ra7xcjypXw&usqp=CAU",
         });

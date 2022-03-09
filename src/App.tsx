@@ -7,9 +7,11 @@ const logoUrl = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8S
 
 function App() {
     const navigate = useNavigate();
+
     useEffect(() => {
         navigate("home")
-    }, [])
+    }, []);
+
     return (
         <div className="App">
             <header>

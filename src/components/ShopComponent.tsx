@@ -1,23 +1,25 @@
 // @flow
 import * as React from 'react';
 import "../styles/Shop.scss"
-import {userAtom} from "../Models/recoil-states";
+import {shoppingCartAtom} from "../Models/recoil-states";
 import {NftItem} from "../Models/User";
 import {useEffect, useState} from "react";
 import {Button, Typography} from "@mui/material";
-import {useRecoilState} from "recoil";
+import {useRecoilState, useRecoilValue} from "recoil";
 
 interface Props {
     allItems: NftItem[];
 };
 export const ShopComponent = (props: Props) => {
-    const [user] = useRecoilState(userAtom);
+    const [cart, setCart] = useRecoilState(shoppingCartAtom);
     const [enableAdd, setEnableAdd] = useState(false);
-    useEffect(() => {
-        setEnableAdd(!!user)
-    }, [user]);
+
+
     const isAddButtonEnable = (item: NftItem) => {
-        return !user?.cart.some(i => item.id == i.id);
+        return !cart.some(i => i.id == item.id);
+    }
+    const onButtonClicked = (item: NftItem) => {
+        setCart([...cart, item]);
     }
     return (
         <div>
@@ -26,8 +28,7 @@ export const ShopComponent = (props: Props) => {
                     <Typography variant={"subtitle1"}>{i.description}</Typography>
                     {i.src ? <img src={i.src}/> : null}
                     <Typography>{i.value}</Typography>
-                    {isAddButtonEnable(i) ? <Button onClick={() => user?.cart.push(i)}>Hinzufügen</Button> : null}
-
+                    {isAddButtonEnable(i) ? <Button onClick={() => onButtonClicked(i)}>Hinzufügen</Button> : null}
                 </div>
             ))}
         </div>

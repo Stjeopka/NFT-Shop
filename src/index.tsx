@@ -34,7 +34,7 @@ ReactDOM.render(
                         <Route path="/" element={<App/>}>
                             {/*sub-components*/}
                             <Route path="shop" element={<ShopComponent allItems={allItems}/>}/>
-                            <Route path="chekout" element={<CheckOutComponent/>}/>
+                            <Route path="checkout" element={<CheckOutComponent/>}/>
                             <Route path="cart" element={<CartComponent/>}/>
                             <Route path="aboutus" element={null}/>
                             <Route path="impressum" element={null}/>

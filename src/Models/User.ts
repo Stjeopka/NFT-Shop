@@ -1,7 +1,6 @@
 export interface User {
     UserName:string;
     avatarSrc:string;
-    cart:NftItem[];
 }
 
 export interface NftItem{

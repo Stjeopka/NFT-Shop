@@ -16,7 +16,7 @@ interface Props {
 export const NavBarComponent: FC<Props> = (props) => {
     const [user] = useRecoilState(userAtom);
     const nav=useNavigate();
-    const totalBalance = useRecoilValue(userBalanceSelector)
+    const totalBalance = useRecoilValue(userBalanceSelector);
     return (
         <div className="container main-container">
             <div className={"container center-container"}>

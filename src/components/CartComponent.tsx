@@ -1,32 +1,33 @@
 // @flow
 import * as React from 'react';
 import "../styles/Cart.scss"
-import {useState} from "react";
-import {NftItem} from "../Models/User";
 import {Button, Typography} from "@mui/material";
-import {useRecoilState} from "recoil";
-import {userAtom} from "../Models/recoil-states";
+import {useRecoilState, useRecoilValue} from "recoil";
+import {shoppingCartAtom, userAtom} from "../Models/recoil-states";
+import {useNavigate} from "react-router-dom";
 
-interface Props {
-
-};
-export const CartComponent = (props: Props) => {
+export const CartComponent = () => {
+    const nav=useNavigate();
     const [user] = useRecoilState(userAtom);
-
-    return user ? (
+    const [cart, setCart] = useRecoilState(shoppingCartAtom);
+    const isBuyDisabled = (): boolean => {
+        return cart.length == 0;
+    }
+    return (
         <div>
-            {user.cart.map(item => (
+            {cart.map(item => (
                 <div>
                     <Typography variant={"subtitle1"}>{item.description}</Typography>
                     {item.src ? <img src={item.src}/> : null}
                     <Typography>{item.value}</Typography>
-                    <Button onClick={() => user.cart = user.cart.filter(i => i.id != item.id)}>Entfernen</Button>
+                    <Button onClick={() => setCart(cart.filter(i => i.id != item.id))}>Entfernen</Button>
                 </div>
             ))}
-        </div>
-    ) : (
-        <div>
-            Bitte Einloggen
+            {user ? <Button disabled={isBuyDisabled()} onClick={()=>nav("/checkout")}>Kaufen</Button> : (
+                <div>
+                    Bitte Einloggen
+                </div>
+            )}
         </div>
     );
 };
