@@ -59,16 +59,16 @@ export const HomePageComponent = () => {
                             <CardMedia 
                                 className = "imgContainer"
                                 component = "img"
-                                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSHv1TJK0v9obz-D0zh522GbHwxSTvunzUx2dCcRcMDiJPqczp1yopDijcTX9M4e737lo&usqp=CAU"
+                                image = "" //insert image
                             />
 
                             <CardContent>
                                 <Typography gutterBottom variant="h3" component="div">
-                                    Zero transaction fees
+                                    Exclusive deals and offers
                                 </Typography>
 
                                 <Typography variant = "body1" className = "cardSubText">
-                                    There are no extra transaction fees when making a purchase throuh our website.    
+                                    We work with artists and creators to secure exclusive deals and offers for our users.   
                                 </Typography>
                             </CardContent>
                         </Card>               
