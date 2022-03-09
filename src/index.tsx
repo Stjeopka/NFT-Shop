@@ -13,6 +13,7 @@ import {CartComponent} from "./components/CartComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RecoilRoot} from "recoil";
 import {ImpressumComponent} from "./components/ImpressumComponent"
+import { HomePageComponent } from './components/HomePageComponent';
 
 const theme = createTheme({
     palette: {
@@ -39,7 +40,7 @@ ReactDOM.render(
                             <Route path="cart" element={<CartComponent/>}/>
                             <Route path="aboutus" element={null}/>
                             <Route path="impressum" element={<ImpressumComponent/>}/>
-                            <Route path="home" element={null}/>
+                            <Route path="home" element={<HomePageComponent/>}/>
                             <Route path="login" element={<LoginComponent/>}/>
 
                             <Route path="*" element={<div>404 Not found</div>}/>
