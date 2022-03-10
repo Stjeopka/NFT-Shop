@@ -6,21 +6,23 @@
 
 .bottom {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px;
 }
 
-.paragraph {
-  height: 800px;
-  width: 800px;
-  margin-right: 10%;
-  margin-left: 10%;
+.biggerLogo{
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 
-.biggerlogo {
-  height: 20px;
-  width: 50px;
-  border-radius: 100%;
-  margin-right: 10%;
-  margin-left: 10%;
+.paragraph {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+img{
+  max-height: 200px;
+  max-width: 200px;
 }
