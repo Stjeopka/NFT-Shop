@@ -36,7 +36,7 @@ export const NavBarComponent: FC<Props> = (props) => {
 
                 <div style={{display: "flex", flexDirection: "column"}}>
                     <img className="cart" src="https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-red-shopping-cart-icon-png-free-illustration-image_1187825.jpg" alt="cart logo" onClick={()=> nav("/cart")}/>
-                    <Typography> Total Balance: {totalBalance}€</Typography>
+                    <Typography> Total Balance: {totalBalance} $</Typography>
                 </div>
                 <div className={"space"}>
                     <Typography variant={"subtitle1"}><b>{user?.UserName ?? ""}</b></Typography>
