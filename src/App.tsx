@@ -12,7 +12,7 @@ function App() {
         if (location.pathname == "/") {
             navigate("home");
         }
-    }, []);
+    });
 
     return (
         <div className="App">
