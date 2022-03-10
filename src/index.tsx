@@ -12,8 +12,8 @@ import {CartComponent} from "./components/CartComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RecoilRoot} from "recoil";
 import {ImpressumComponent} from "./components/ImpressumComponent"
-import { HomePageComponent } from './components/HomePageComponent';
-import { allItems } from './Models/User';
+import {HomePageComponent} from './components/HomePageComponent';
+import {allItems} from './Models/User';
 import {AboutUsComponent} from "./components/AboutUs";
 
 
@@ -30,7 +30,6 @@ ReactDOM.render(
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<App/>}>
-                            {/*sub-components*/}
                             <Route path="shop" element={<ShopComponent allItems={allItems}/>}/>
                             <Route path="checkout" element={<CheckOutComponent/>}/>
                             <Route path="cart" element={<CartComponent/>}/>
