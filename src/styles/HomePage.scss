@@ -12,6 +12,35 @@
     transform: translateY(-50%);
 }
 
+#newsFeed{
+    margin-top: 5vh;
+}
+
+#newsHeadline{
+    margin: 5vh 0 10vh 0;
+}
+
+.swiper{
+    height: 50vh;
+}
+
+.swiperSlide{
+    margin: 0 2vw 0 2vw;
+    position: relative;
+}
+
+.swiperImg{
+    float: left;
+    height: 50vh;
+    width: auto;
+}
+
+.swiperHeadline{
+    margin-left: 5%;
+    width: 40vw;
+    display: inline-block;
+}
+
 #featureContainer{
     margin-top: 5%;
 }
@@ -25,7 +54,7 @@
 }
 
 .cards{
-    height: 50vh;
+    height: 55vh;
     width: 20%;
     margin: 0 5% 0 5%;
 }

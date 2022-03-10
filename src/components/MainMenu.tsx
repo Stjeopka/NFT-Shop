@@ -52,6 +52,7 @@ export const MainMenu = () => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
+                <MenuItem onClick={() => menuClicked("home")}>Home</MenuItem>
                 <MenuItem onClick={() => menuClicked("/shop")}>Shop</MenuItem>
                 <MenuItem onClick={() => menuClicked("impressum")}>Impressum</MenuItem>
                 <MenuItem onClick={() => menuClicked("aboutus")}>About Us</MenuItem>
