@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
 import "../styles/CheckOut.scss"
-import {userAtom} from "../Models/recoil-states";
+import {userAtom, userBalanceSelector} from "../Models/recoil-states";
 import {Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography} from "@mui/material";
-import {FC, useEffect, useState} from "react";
+import {useState} from "react";
 import {useRecoilState, useRecoilValue} from "recoil";
 
 enum Gender {
@@ -19,15 +19,9 @@ export const CheckOutComponent = () => {
     const [lastName, setLastName] = useState("");
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
-    const [totalBalance, setTotalBalance] = useState(0.0);
+    const totalBalance = useRecoilValue(userBalanceSelector);
     const [wasBuySuccess, setWasBuySuccess] = useState(false);
 
-    useEffect(() => {
-        if (!user) return;
-        let sum = 0.0;
-        user.cart.forEach(i => sum + i.value);
-        setTotalBalance(sum);
-    }, [user]);
     const getGenderText = () => {
         switch (gender) {
             case Gender.male:

@@ -7,7 +7,7 @@ import {shoppingCartAtom, userAtom} from "../Models/recoil-states";
 import {useNavigate} from "react-router-dom";
 
 export const CartComponent = () => {
-    const nav=useNavigate();
+    const nav = useNavigate();
     const [user] = useRecoilState(userAtom);
     const [cart, setCart] = useRecoilState(shoppingCartAtom);
     const isBuyDisabled = (): boolean => {
@@ -15,15 +15,20 @@ export const CartComponent = () => {
     }
     return (
         <div>
-            {cart.map(item => (
-                <div>
-                    <Typography variant={"subtitle1"}>{item.description}</Typography>
-                    {item.src ? <img src={item.src}/> : null}
-                    <Typography>{item.value}</Typography>
-                    <Button onClick={() => setCart(cart.filter(i => i.id != item.id))}>Entfernen</Button>
-                </div>
-            ))}
-            {user ? <Button disabled={isBuyDisabled()} onClick={()=>nav("/checkout")}>Kaufen</Button> : (
+            {cart.length == 0 ? (
+                    <div>
+                        <Typography variant={"subtitle1"}>Warenkorb ist leer</Typography>
+                    </div>
+                ) :
+                cart.map(item => (
+                    <div>
+                        <Typography variant={"subtitle1"}>{item.description}</Typography>
+                        {item.src ? <img src={item.src}/> : null}
+                        <Typography>{item.value}</Typography>
+                        <Button onClick={() => setCart(cart.filter(i => i.id != item.id))}>Entfernen</Button>
+                    </div>
+                ))}
+            {user ? <Button disabled={isBuyDisabled()} onClick={() => nav("/checkout")}>Kaufen</Button> : (
                 <div>
                     Bitte Einloggen
                 </div>

@@ -23,7 +23,6 @@ const theme = createTheme({
     }
 });
 
-
 ReactDOM.render(
     <React.StrictMode>
         <RecoilRoot>
