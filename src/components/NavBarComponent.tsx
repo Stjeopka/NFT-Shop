@@ -31,7 +31,7 @@ export const NavBarComponent: FC<Props> = (props) => {
                 </Tooltip>
                 <MainMenu/>
             </div>
-            <h1>NFT Shop</h1>
+            <h1 className='Titel'>NFT Shop</h1>
             {user ? (<div className={"container center-container"}>
 
                 <div style={{display: "flex", flexDirection: "column"}}>
