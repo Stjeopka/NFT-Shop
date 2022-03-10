@@ -30,7 +30,7 @@ export const ShopComponent = (props: Props) => {
                     <img className="pic"  src={i.src}/>
                     <div className="textbox">
                         <Typography className="textbox">{i.value + "$"}</Typography>
-                        {isAddButtonEnable(i) ? <Button onClick={() => user?.cart.push(i)}>Add to cart</Button> : null}
+                        {isAddButtonEnable(i) ? <Button onClick={() => onButtonClicked(i)}>Add to cart</Button> : null}
                     </div>
 
                 </div>
