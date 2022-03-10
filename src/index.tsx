@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {createTheme, ThemeProvider} from "@mui/material";
 import {lime} from "@mui/material/colors"
-import {NftItem} from "./Models/User";
 import {ShopComponent} from "./components/ShopComponent";
 import {CheckOutComponent} from "./components/CheckOutComponent";
 import {CartComponent} from "./components/CartComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {RecoilRoot} from "recoil";
+import { allItems } from './Models/User';
+import {AboutUsComponent} from "./components/AboutUs";
+
 
 const theme = createTheme({
     palette: {
@@ -19,11 +21,6 @@ const theme = createTheme({
     }
 });
 
-const allItems: NftItem[] = [{
-    value: 5.0,
-    description: "Demo text",
-    id: 1,
-}];
 
 ReactDOM.render(
     <React.StrictMode>
@@ -36,7 +33,7 @@ ReactDOM.render(
                             <Route path="shop" element={<ShopComponent allItems={allItems}/>}/>
                             <Route path="chekout" element={<CheckOutComponent/>}/>
                             <Route path="cart" element={<CartComponent/>}/>
-                            <Route path="aboutus" element={null}/>
+                            <Route path="aboutus" element={<AboutUsComponent/>}/>
                             <Route path="impressum" element={null}/>
                             <Route path="home" element={null}/>
                             <Route path="login" element={<LoginComponent/>}/>
