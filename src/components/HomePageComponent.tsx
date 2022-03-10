@@ -1,9 +1,8 @@
 // @flow
-import { Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, List, ListItem, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Stack, Typography } from '@mui/material';
 import * as React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import PropTypes from 'prop-types';
 import 'swiper/css';
   import 'swiper/css/navigation';
 import "../styles/HomePage.scss"
@@ -57,10 +56,16 @@ export const HomePageComponent = () => {
                         <SwiperSlide className="swiperSlide">
                             <img className="swiperImg" src="https://www.equipment-hq.co.uk/wp-content/uploads/2020/03/iStock-1131198189.jpg" />
                             <Typography className="swiperHeadline" variant="h3">Upcoming server maintenance on 20.03.2022</Typography>
-                            <Button variant="contained" onClick={handleClickOpen}>Learn more</Button>
+                            <Grid justifyContent="flex-end" alignItems="flex-end">
+                                <Button className = "newsFeedButton" variant="contained" onClick={handleClickOpen}>Learn more</Button>
+                            </Grid>                           
                         </SwiperSlide>
-                        <SwiperSlide className="swiperSlide">Slide 2</SwiperSlide>
-                        <SwiperSlide className="swiperSlide">Slide 3</SwiperSlide>
+                        <SwiperSlide className="swiperSlide">
+                            <Typography className="swiperHeadline" variant="h3">no current news</Typography>
+                        </SwiperSlide> 
+                        <SwiperSlide className="swiperSlide">
+                            <Typography className="swiperHeadline" variant="h3">no current news</Typography>
+                        </SwiperSlide> 
                     </Swiper>
                     <div id="featureContainer">
                         <p id="featuresHeader">What we offer:</p>
@@ -69,7 +74,7 @@ export const HomePageComponent = () => {
                                 <CardMedia
                                     className="imgContainer"
                                     component="img"
-                                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSHv1TJK0v9obz-D0zh522GbHwxSTvunzUx2dCcRcMDiJPqczp1yopDijcTX9M4e737lo&usqp=CAU" />
+                                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSHv1TJK0v9obz-D0zh522GbHwxSTvunzUx2dCcRcMDiJPqczp1yopDijcTX9M4e737lo&usqp=CAU"/>
 
                                 <CardContent>
                                     <Typography gutterBottom variant="h3" component="div">
@@ -86,7 +91,7 @@ export const HomePageComponent = () => {
                                 <CardMedia
                                     className="imgContainer"
                                     component="img"
-                                    image="https://th.bing.com/th/id/R.ffd123e7c06ec5de769143166c9e6c51?rik=GURPzOGst1adgg&pid=ImgRaw&r=0" />
+                                    image="https://th.bing.com/th/id/R.ffd123e7c06ec5de769143166c9e6c51?rik=GURPzOGst1adgg&pid=ImgRaw&r=0"/>
 
                                 <CardContent>
                                     <Typography gutterBottom variant="h3" component="div">
@@ -103,7 +108,7 @@ export const HomePageComponent = () => {
                                 <CardMedia
                                     className="imgContainer"
                                     component="img"
-                                    image="" //insert image
+                                    image=""
                                 />
 
                                 <CardContent>
