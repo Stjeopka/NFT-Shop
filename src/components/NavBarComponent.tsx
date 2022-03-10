@@ -42,7 +42,7 @@ export const NavBarComponent: FC<Props> = (props) => {
                     <Typography variant={"subtitle1"}><b>{user?.UserName ?? ""}</b></Typography>
                 </div>
                 <Avatar className={"space"} alt={user?.UserName ?? ""} src={user?.avatarSrc ?? ""}/>
-            </div>) : (<div></div>)}
+            </div>) : (<div className={"placeholder"}></div>)}
         </div>
     );
 };
