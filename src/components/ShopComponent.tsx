@@ -25,14 +25,14 @@ export const ShopComponent = (props: Props) => {
     return (
         <div>
             {props.allItems.map(i => (
-                <div style={{display: "flex", flexDirection: "column", alignSelf: "center", padding: "20px"}}
-                     key={i.id}>
-                    <Typography variant={"subtitle1"}>{"Picture #" + i.id}</Typography>
-                    <img style={{height: "700px", width: "500px", alignSelf: "center"}} src={i.src}/>
-                    <div style={{display: "flex", flexDirection: "row", padding: "10px", alignSelf: "center"}}>
-                        <Typography>{i.value + "$"}</Typography>
-                        {isAddButtonEnable(i) ? <Button onClick={() => onButtonClicked(i)}>Add to cart</Button> : null}
+               <div className="itembox"  key={i.id}>
+                    <Typography className="headline" variant={"subtitle1"}>{"Picture #" + i.id}</Typography>
+                    <img className="pic"  src={i.src}/>
+                    <div className="textbox">
+                        <Typography className="textbox">{i.value + "$"}</Typography>
+                        {isAddButtonEnable(i) ? <Button onClick={() => user?.cart.push(i)}>Add to cart</Button> : null}
                     </div>
+
                 </div>
             ))}
         </div>
