@@ -8,6 +8,7 @@ import {useRecoilState, useRecoilValue} from "recoil";
 import {userAtom, userBalanceSelector} from "../Models/recoil-states";
 import {useNavigate} from "react-router-dom";
 
+
 interface Props {
     logoUrl: string;
     title: string;
@@ -16,21 +17,25 @@ interface Props {
 export const NavBarComponent: FC<Props> = (props) => {
     const [user] = useRecoilState(userAtom);
     const nav=useNavigate();
-    const totalBalance = useRecoilValue(userBalanceSelector);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const totalBalance = useRecoilValue(userBalanceSelector)
+    const LogoClicked = (path: string) => {
+        nav(path);
+        setAnchorEl(null);
+    }
     return (
         <div className="container main-container">
             <div className={"container center-container"}>
                 <Tooltip title={props.title}>
-                    <img className="logo" src={props.logoUrl} alt="nft trading logo"/>
+                    <img className="logo" src={props.logoUrl} alt="nft trading logo" onClick={()=> LogoClicked("home")}/>
                 </Tooltip>
                 <MainMenu/>
             </div>
+            <h1>NFT Shop</h1>
             {user ? (<div className={"container center-container"}>
 
                 <div style={{display: "flex", flexDirection: "column"}}>
-                    <Button variant={"contained"} onClick={()=>nav("/cart")}>
-                        Cart
-                    </Button>
+                    <img className="cart" src="https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-red-shopping-cart-icon-png-free-illustration-image_1187825.jpg" alt="cart logo" onClick={()=> nav("/cart")}/>
                     <Typography> Total Balance: {totalBalance}€</Typography>
                 </div>
                 <div className={"space"}>
