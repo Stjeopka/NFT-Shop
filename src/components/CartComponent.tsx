@@ -45,7 +45,7 @@ export const CartComponent = () => {
                 </Grid>
             )}
 
-            {user ? <Button disabled={isBuyDisabled()} onClick={() => nav("/checkout")}>Kaufen</Button> : (
+            {user ? <Button variant={"contained"} style={{margin:"5px"}} disabled={isBuyDisabled()} onClick={() => nav("/checkout")}>Kaufen</Button> : (
                 <div>
                     Bitte Einloggen
                 </div>
